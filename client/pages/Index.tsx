@@ -177,6 +177,9 @@ export default function Index() {
             {services.map((service) => (
               <div
                 key={service.id}
+                onClick={() =>
+                  service.id === "fastag" ? navigate(service.route) : null
+                }
                 className="bg-card rounded-2xl p-4 shadow-sm border hover:shadow-md transition-shadow cursor-pointer"
               >
                 <div className="flex items-center justify-between">
