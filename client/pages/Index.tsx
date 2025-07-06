@@ -312,29 +312,67 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Wallet Balance */}
-        <div className="bg-card rounded-2xl p-5 shadow-sm border mb-6">
-          <div className="flex items-center justify-between">
+        {/* Enhanced Wallet Balance with Smart Insights */}
+        <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-5 shadow-lg border border-border/50 mb-6 relative overflow-hidden group">
+          {/* Subtle animated background */}
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-brand-500/5 to-transparent rounded-full"></div>
+
+          <div className="flex items-center justify-between mb-4">
             <div>
-              <p className="text-sm text-muted-foreground mb-1">
-                FASTag Balance
+              <div className="flex items-center space-x-2 mb-2">
+                <Wallet className="w-4 h-4 text-brand-500" />
+                <p className="text-sm text-muted-foreground">FASTag Balance</p>
+              </div>
+              <p className="text-3xl font-bold text-foreground flex items-center">
+                ₹1,250
+                <Lightning className="w-5 h-5 ml-2 text-yellow-500 animate-pulse" />
               </p>
-              <p className="text-2xl font-bold text-foreground">₹1,250</p>
+              <div className="flex items-center space-x-2 mt-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-xs text-green-600 font-medium">
+                  Auto-recharge enabled
+                </span>
+              </div>
             </div>
             <div className="text-right">
-              <div className="flex items-center text-success text-sm mb-1">
-                <TrendingUp className="w-4 h-4 mr-1" />
-                +5.2%
+              <div className="bg-success/10 rounded-xl p-3 mb-2">
+                <div className="flex items-center text-success text-sm mb-1">
+                  <TrendingUp className="w-4 h-4 mr-1 animate-pulse" />
+                  +5.2%
+                </div>
+                <p className="text-xs text-muted-foreground">This month</p>
               </div>
-              <p className="text-xs text-muted-foreground">This month</p>
+              <div className="text-xs text-muted-foreground bg-muted/50 rounded-lg px-2 py-1">
+                Next toll: ₹85
+              </div>
             </div>
           </div>
-          <div className="flex gap-3 mt-4">
-            <button className="flex-1 bg-brand-500 text-white py-2.5 rounded-xl font-medium text-sm">
-              Recharge FASTag
+
+          {/* Smart Usage Insights */}
+          <div className="bg-gradient-to-r from-brand-50 to-highway-50 rounded-xl p-3 mb-4 border border-brand-100/50">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <Layers className="w-4 h-4 text-brand-600" />
+                <span className="text-sm font-medium text-brand-700">
+                  Smart Insight
+                </span>
+              </div>
+              <Star className="w-4 h-4 text-yellow-500 animate-pulse" />
+            </div>
+            <p className="text-xs text-brand-600 mt-1">
+              Based on your travel pattern, you'll save ₹320 this month with
+              FASTag
+            </p>
+          </div>
+
+          <div className="flex gap-3">
+            <button className="flex-1 bg-gradient-to-r from-brand-500 to-brand-600 text-white py-3 rounded-xl font-medium text-sm shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center justify-center space-x-2">
+              <Zap className="w-4 h-4" />
+              <span>Quick Recharge</span>
             </button>
-            <button className="flex-1 bg-muted text-muted-foreground py-2.5 rounded-xl font-medium text-sm">
-              View History
+            <button className="flex-1 bg-gradient-to-r from-muted to-muted/80 text-muted-foreground py-3 rounded-xl font-medium text-sm hover:bg-muted/60 transition-all duration-300 flex items-center justify-center space-x-2">
+              <FileText className="w-4 h-4" />
+              <span>History</span>
             </button>
           </div>
         </div>
