@@ -16,8 +16,10 @@ import {
   Star,
   TrendingUp,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Index() {
+  const navigate = useNavigate();
   const services = [
     {
       id: "fastag",
