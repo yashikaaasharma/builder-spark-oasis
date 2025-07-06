@@ -377,18 +377,33 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Quick Actions */}
+        {/* Enhanced Quick Actions with Haptic Design */}
         <div className="grid grid-cols-4 gap-4 mb-6">
           {quickActions.map((action, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div
+              key={index}
+              className="flex flex-col items-center group cursor-pointer"
+            >
               <div
-                className={`w-16 h-16 ${action.bg} rounded-2xl flex items-center justify-center shadow-sm mb-2`}
+                className={`w-16 h-16 ${action.bg} rounded-2xl flex items-center justify-center shadow-lg mb-2 border border-white/20 backdrop-blur-sm group-hover:scale-110 group-hover:shadow-xl transition-all duration-300 group-active:scale-95 relative overflow-hidden`}
               >
-                <action.icon className={`w-7 h-7 ${action.color}`} />
+                {/* Shimmer effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                <action.icon
+                  className={`w-7 h-7 ${action.color} relative z-10 group-hover:scale-110 transition-transform duration-300`}
+                />
+
+                {/* Special pulsing effect for emergency */}
+                {action.label === "Emergency" && (
+                  <div className="absolute inset-0 bg-red-500/20 rounded-2xl animate-pulse"></div>
+                )}
               </div>
-              <p className="text-xs text-center text-muted-foreground font-medium">
+              <p className="text-xs text-center text-muted-foreground font-medium group-hover:text-foreground transition-colors duration-200">
                 {action.label}
               </p>
+              {action.label === "Emergency" && (
+                <div className="w-1 h-1 bg-red-500 rounded-full mt-1 animate-pulse"></div>
+              )}
             </div>
           ))}
         </div>
