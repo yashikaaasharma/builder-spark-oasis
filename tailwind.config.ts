@@ -59,6 +59,18 @@ export default {
           800: "hsl(var(--brand-800))",
           900: "hsl(var(--brand-900))",
         },
+        highway: {
+          50: "hsl(var(--highway-50))",
+          100: "hsl(var(--highway-100))",
+          200: "hsl(var(--highway-200))",
+          300: "hsl(var(--highway-300))",
+          400: "hsl(var(--highway-400))",
+          500: "hsl(var(--highway-500))",
+          600: "hsl(var(--highway-600))",
+          700: "hsl(var(--highway-700))",
+          800: "hsl(var(--highway-800))",
+          900: "hsl(var(--highway-900))",
+        },
         success: {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
