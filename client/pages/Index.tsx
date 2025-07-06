@@ -551,6 +551,25 @@ export default function Index() {
           </div>
         </div>
 
+        {/* Assignment Navigation */}
+        <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-5 text-white mb-6">
+          <h3 className="font-bold text-lg mb-3">📋 Complete Assignment</h3>
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              onClick={() => navigate("/marketing")}
+              className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl p-3 text-sm font-medium hover:bg-white/30 transition-all duration-300"
+            >
+              🎨 Marketing Graphic
+            </button>
+            <button
+              onClick={() => navigate("/rationale")}
+              className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl p-3 text-sm font-medium hover:bg-white/30 transition-all duration-300"
+            >
+              📝 Design Rationale
+            </button>
+          </div>
+        </div>
+
         {/* Bottom Spacing for Navigation */}
         <div className="h-24"></div>
       </div>
