@@ -192,8 +192,8 @@ export default function Index() {
 
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-yellow-500 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-yellow-400 shadow-lg">
-              <MapPin className="w-7 h-7 text-black animate-pulse" />
+            <div className="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-yellow-300 shadow-lg">
+              <MapPin className="w-7 h-7 text-black" />
             </div>
             <div>
               <h1 className="text-2xl font-bold flex items-center">
@@ -203,11 +203,13 @@ export default function Index() {
                   style={{ animationDuration: "3s" }}
                 />
               </h1>
-              <p className="text-sm opacity-90 flex items-center">
-                India's largest digitally connected
-                <Compass className="w-3 h-3 ml-1 animate-pulse" />
+              <p className="text-sm opacity-90">
+                India's largest{" "}
+                <span className="text-yellow-200 font-semibold">
+                  digitally connected
+                </span>
               </p>
-              <p className="text-xs opacity-80">
+              <p className="text-sm opacity-90">
                 mobility and highway wayside amenities platform.
               </p>
             </div>
