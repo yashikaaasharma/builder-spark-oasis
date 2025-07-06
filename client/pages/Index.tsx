@@ -34,6 +34,20 @@ import { useEffect, useState } from "react";
 
 export default function Index() {
   const navigate = useNavigate();
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [weatherTemp] = useState(28);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    // Simulate loading for smooth entrance animations
+    setTimeout(() => setIsLoading(false), 1500);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const primaryServices = [
     {
