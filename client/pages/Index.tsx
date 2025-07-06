@@ -21,8 +21,16 @@ import {
   AlertTriangle,
   ArrowRight,
   Play,
+  Sparkles,
+  Wind,
+  Compass,
+  Activity,
+  MapIcon,
+  Layers,
+  Zap as Lightning,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Index() {
   const navigate = useNavigate();
