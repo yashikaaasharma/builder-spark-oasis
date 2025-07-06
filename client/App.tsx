@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Fastag from "./pages/Fastag";
 import MarketingGraphic from "./pages/MarketingGraphic";
+import DesignRationale from "./pages/DesignRationale";
 
 const queryClient = new QueryClient();
 
