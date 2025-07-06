@@ -34,18 +34,20 @@ export default function MarketingGraphic() {
       <div className="relative z-10 text-center text-white px-16">
         {/* Logo & Brand */}
         <div className="flex items-center justify-center mb-8">
-          <div className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-white/30 mr-4">
-            <Route className="w-12 h-12" />
+          <div className="w-20 h-20 bg-yellow-400 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-yellow-300 mr-4">
+            <MapPin className="w-12 h-12 text-black" />
           </div>
           <div className="text-left">
             <h1 className="text-5xl font-bold flex items-center">
-              Highway Delite
+              highway delite
               <Sparkles
                 className="w-8 h-8 ml-3 text-yellow-200 animate-spin"
                 style={{ animationDuration: "3s" }}
               />
             </h1>
-            <p className="text-xl opacity-90">Your Smart Travel Companion</p>
+            <p className="text-xl opacity-90">
+              India's largest digitally connected platform
+            </p>
           </div>
         </div>
 
