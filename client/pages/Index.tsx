@@ -238,34 +238,76 @@ export default function Index() {
 
       {/* Main Content */}
       <div className="px-4 -mt-4">
-        {/* Current Trip Card */}
-        <div className="bg-gradient-to-r from-highway-500 to-highway-400 rounded-2xl p-6 text-white shadow-lg mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h3 className="text-lg font-semibold mb-1">Current Trip</h3>
-              <div className="flex items-center space-x-2">
-                <span className="text-highway-100">{currentTrip.from}</span>
-                <ArrowRight className="w-4 h-4" />
-                <span className="text-highway-100">{currentTrip.to}</span>
-              </div>
-            </div>
-            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-              <Play className="w-6 h-6" />
-            </div>
+        {/* Enhanced Current Trip Card with Live Progress */}
+        <div className="bg-gradient-to-r from-highway-500 via-highway-400 to-highway-500 rounded-2xl p-6 text-white shadow-xl mb-6 relative overflow-hidden group hover:shadow-2xl transition-all duration-500">
+          {/* Animated background pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"></div>
+            <div
+              className="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-full animate-pulse"
+              style={{ animationDelay: "1s" }}
+            ></div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
-            <div className="text-center">
-              <p className="text-highway-100 text-xs mb-1">Distance</p>
-              <p className="font-semibold">{currentTrip.distance}</p>
+          <div className="relative z-10">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <div className="flex items-center space-x-2 mb-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="text-xs font-medium text-highway-100">
+                    LIVE TRACKING
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Current Trip</h3>
+                <div className="flex items-center space-x-3">
+                  <span className="text-highway-100 font-medium">
+                    {currentTrip.from}
+                  </span>
+                  <div className="flex items-center space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                    <div className="w-1 h-1 bg-white/70 rounded-full animate-pulse"></div>
+                    <div
+                      className="w-1 h-1 bg-white/50 rounded-full animate-pulse"
+                      style={{ animationDelay: "0.5s" }}
+                    ></div>
+                    <ArrowRight className="w-4 h-4 animate-pulse" />
+                  </div>
+                  <span className="text-highway-100 font-medium">
+                    {currentTrip.to}
+                  </span>
+                </div>
+              </div>
+              <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/30 group-hover:scale-110 transition-transform duration-300">
+                <Play className="w-7 h-7 animate-pulse" />
+              </div>
             </div>
-            <div className="text-center">
-              <p className="text-highway-100 text-xs mb-1">ETA</p>
-              <p className="font-semibold">{currentTrip.eta}</p>
+
+            {/* Progress Bar */}
+            <div className="mb-4">
+              <div className="flex justify-between text-xs text-highway-100 mb-2">
+                <span>Progress</span>
+                <span>67% Complete</span>
+              </div>
+              <div className="w-full bg-white/20 rounded-full h-2">
+                <div className="bg-gradient-to-r from-green-400 to-yellow-400 h-2 rounded-full w-2/3 relative">
+                  <div className="absolute right-0 top-0 w-3 h-2 bg-white rounded-full animate-pulse"></div>
+                </div>
+              </div>
             </div>
-            <div className="text-center">
-              <p className="text-highway-100 text-xs mb-1">Toll Cost</p>
-              <p className="font-semibold">{currentTrip.tollCost}</p>
+
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-center bg-white/10 rounded-xl p-3 backdrop-blur-sm">
+                <p className="text-highway-100 text-xs mb-1">Distance</p>
+                <p className="font-bold text-lg">{currentTrip.distance}</p>
+              </div>
+              <div className="text-center bg-white/10 rounded-xl p-3 backdrop-blur-sm">
+                <p className="text-highway-100 text-xs mb-1">ETA</p>
+                <p className="font-bold text-lg">{currentTrip.eta}</p>
+              </div>
+              <div className="text-center bg-white/10 rounded-xl p-3 backdrop-blur-sm">
+                <p className="text-highway-100 text-xs mb-1">Toll Cost</p>
+                <p className="font-bold text-lg">{currentTrip.tollCost}</p>
+              </div>
             </div>
           </div>
         </div>
