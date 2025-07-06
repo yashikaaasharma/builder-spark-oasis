@@ -151,23 +151,70 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-brand-600 to-brand-500 px-4 pt-12 pb-6 text-white">
+      {/* Header with floating animation elements */}
+      <div className="bg-gradient-to-r from-brand-600 via-brand-500 to-highway-500 px-4 pt-12 pb-6 text-white relative overflow-hidden">
+        {/* Floating background elements */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <div className="absolute top-8 right-8 w-32 h-32 bg-white/5 rounded-full animate-pulse"></div>
+          <div
+            className="absolute top-20 left-12 w-16 h-16 bg-highway-300/10 rounded-full animate-bounce"
+            style={{ animationDelay: "1s" }}
+          ></div>
+          <div
+            className="absolute bottom-8 right-20 w-20 h-20 bg-white/5 rounded-full animate-pulse"
+            style={{ animationDelay: "2s" }}
+          ></div>
+        </div>
+
+        {/* Weather and Time Strip */}
+        <div className="flex items-center justify-between mb-4 bg-white/10 rounded-xl p-3 backdrop-blur-sm">
+          <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2">
+              <Activity className="w-4 h-4 text-yellow-200" />
+              <span className="text-sm font-medium">{weatherTemp}°C</span>
+            </div>
+            <div className="w-px h-4 bg-white/30"></div>
+            <div className="flex items-center space-x-2">
+              <Clock className="w-4 h-4 text-blue-200" />
+              <span className="text-sm font-medium">
+                {currentTime.toLocaleTimeString("en-US", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </span>
+            </div>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Wind className="w-4 h-4 text-green-200 animate-pulse" />
+            <span className="text-sm">Clear Roads</span>
+          </div>
+        </div>
+
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
-              <Route className="w-7 h-7" />
+            <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-lg">
+              <Route className="w-7 h-7 animate-pulse" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">Highway Delite</h1>
-              <p className="text-sm opacity-90">Your Travel Companion</p>
+              <h1 className="text-2xl font-bold flex items-center">
+                Highway Delite
+                <Sparkles
+                  className="w-5 h-5 ml-2 text-yellow-200 animate-spin"
+                  style={{ animationDuration: "3s" }}
+                />
+              </h1>
+              <p className="text-sm opacity-90 flex items-center">
+                Your Smart Travel Companion
+                <Compass className="w-3 h-3 ml-1 animate-pulse" />
+              </p>
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20 hover:bg-white/30 transition-all duration-300 cursor-pointer">
               <Bell className="w-5 h-5" />
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
             </div>
-            <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20 hover:bg-white/30 transition-all duration-300 cursor-pointer">
               <User className="w-5 h-5" />
             </div>
           </div>
