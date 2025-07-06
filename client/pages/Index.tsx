@@ -420,41 +420,70 @@ export default function Index() {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            {primaryServices.map((service) => (
+            {primaryServices.map((service, index) => (
               <div
                 key={service.id}
                 onClick={() =>
                   service.id === "fastag" ? navigate(service.route) : null
                 }
-                className="bg-card rounded-2xl p-5 shadow-sm border hover:shadow-md transition-all cursor-pointer relative overflow-hidden"
+                className="bg-gradient-to-br from-card to-card/80 rounded-2xl p-5 shadow-lg border border-border/50 hover:shadow-xl transition-all duration-500 cursor-pointer relative overflow-hidden group hover:scale-[1.02] hover:-translate-y-1"
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                  animation: isLoading
+                    ? "none"
+                    : "fadeInUp 0.6s ease-out forwards",
+                }}
               >
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+
+                {/* Active indicator with enhanced design */}
                 {service.isActive && (
-                  <div className="absolute top-3 right-3">
+                  <div className="absolute top-3 right-3 flex items-center space-x-1">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <div className="text-xs text-green-600 font-medium bg-green-50 px-2 py-1 rounded-full">
+                      LIVE
+                    </div>
                   </div>
                 )}
 
+                {/* Enhanced icon container */}
                 <div
-                  className={`w-14 h-14 ${service.lightColor} rounded-2xl flex items-center justify-center mb-4`}
+                  className={`w-14 h-14 ${service.lightColor} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg border border-white/50 backdrop-blur-sm relative overflow-hidden`}
                 >
+                  {/* Icon shimmer effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   <service.icon
-                    className={`w-7 h-7 ${service.color.replace("bg-", "text-")}`}
+                    className={`w-7 h-7 ${service.color.replace("bg-", "text-")} relative z-10 group-hover:scale-110 transition-transform duration-300`}
                   />
                 </div>
 
-                <h3 className="font-semibold text-foreground mb-1">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-brand-600 transition-colors duration-300">
                   {service.name}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-3">
+                <p className="text-sm text-muted-foreground mb-4 group-hover:text-muted-foreground/80 transition-colors duration-300">
                   {service.description}
                 </p>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-brand-500 font-medium">
-                    {service.isActive ? "Active" : "Available"}
+                  <span
+                    className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                      service.isActive
+                        ? "text-green-700 bg-green-100"
+                        : "text-brand-700 bg-brand-100"
+                    }`}
+                  >
+                    {service.isActive ? "Active Now" : "Available"}
                   </span>
-                  <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                  <div className="w-8 h-8 bg-muted/50 rounded-lg flex items-center justify-center group-hover:bg-brand-500 group-hover:text-white transition-all duration-300">
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />
+                  </div>
                 </div>
+
+                {/* Bottom accent line */}
+                <div
+                  className={`absolute bottom-0 left-0 h-1 ${service.color} w-0 group-hover:w-full transition-all duration-500 rounded-bl-2xl`}
+                ></div>
               </div>
             ))}
           </div>
