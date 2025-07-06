@@ -220,14 +220,19 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Search */}
-        <div className="relative">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+        {/* Enhanced Search with Voice Input */}
+        <div className="relative group">
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 group-focus-within:text-brand-500 transition-colors" />
           <input
             type="text"
-            placeholder="Search destinations, services..."
-            className="w-full bg-white rounded-2xl py-4 pl-12 pr-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/30"
+            placeholder="Search destinations, highways, services..."
+            className="w-full bg-white/95 backdrop-blur-md rounded-2xl py-4 pl-12 pr-16 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50 focus:bg-white shadow-lg border border-white/20 transition-all duration-300 focus:scale-[1.02]"
           />
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-r from-brand-500 to-highway-500 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+              <MapIcon className="w-4 h-4 text-white" />
+            </div>
+          </div>
         </div>
       </div>
 
