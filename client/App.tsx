@@ -23,7 +23,13 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/fastag" element={<Fastag />} />
-          <Route path="/marketing" element={<MarketingGraphic />} />
+          <Route path="/marketing" element={
+  <div style={{ padding: '2rem' }}>
+    <h1>This is the Marketing Page</h1>
+    <p>Page is working properly!</p>
+  </div>
+} />
+
           <Route path="/rationale" element={<DesignRationale />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
